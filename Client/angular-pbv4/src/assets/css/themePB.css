@@ -46,6 +46,7 @@ textclair {
 
 .containerproxi {
   min-height: 20px;
+  color: #333333;
   padding: 19px;
   margin-bottom: 20px;
   background-color: #EEEEEE;
@@ -69,5 +70,15 @@ textclair {
     border-color:#d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
+}
+
+.selected {
+  background-color: #CFD8DC !important;
+   color: #333333; 
+}
+
+.decouvert {
+	background-color: #a53b3b;
+	color: #ffffff; 
 }
   

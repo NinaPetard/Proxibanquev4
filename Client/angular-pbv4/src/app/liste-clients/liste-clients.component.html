@@ -1,6 +1,8 @@
-<div class="proxicontainer">
+
+<div class="containerproxi">
     <table class="table table-striped">
         <thead class="thead-dark">
+        <th></th>
         <th>Id</th>
         <th>Nom</th>
         <th>Prenom</th>
@@ -10,7 +12,9 @@
         <th>Solde Compte courant</th>
         <th></th>
         </thead>
-    <tr *ngFor="let client of clients">
+    <tr *ngFor="let client of clients"  
+    [class.selected]="client === selectedClient"
+    (click)="afficherComptes(client)">
       <th></th>
       <th>{{client.idClient}}</th>
       <th>{{client.nom}}</th>
@@ -23,3 +27,17 @@
     </tr>
     </table>
 </div>
+
+<br>
+<br>
+<div *ngIf="selectedClient">
+    <div *ngFor="let compte of listeCptCli" class="col-sm-6">
+        <div class="containerproxi" [class.decouvert]="compte.solde<0" >
+            Compte n° {{compte.idCompte}}<br>            
+            Solde: {{compte.solde}}<br>
+            Type de Compte: {{compte.type}}<br>
+    </div>
+    </div>
+
+</div>
+
