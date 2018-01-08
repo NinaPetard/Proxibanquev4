@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
+
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './/app-routing.module';
+
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DeconnexionComponent } from './deconnexion/deconnexion.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +19,8 @@ import { BtnAjoutComponent } from './btn-ajout/btn-ajout.component';
 import { ModifierClientComponent } from './modifier-client/modifier-client.component';
 import { StatsConseillerComponent } from './stats-conseiller/stats-conseiller.component';
 import { StatsGlobalesComponent } from './stats-globales/stats-globales.component';
+
+
 
 
 @NgModule({
@@ -36,7 +41,8 @@ import { StatsGlobalesComponent } from './stats-globales/stats-globales.componen
     StatsGlobalesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('proxibanque-v4 App', () => {
+describe('angular-pbv4 App', () => {
   let page: AppPage;
 
   beforeEach(() => {

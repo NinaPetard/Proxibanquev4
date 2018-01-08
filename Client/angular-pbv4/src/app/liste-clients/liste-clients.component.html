@@ -1,0 +1,25 @@
+<div class="proxicontainer">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Adresse</th>
+        <th>Telephone</th>
+        <th>Email</th>
+        <th>Solde Compte courant</th>
+        <th></th>
+        </thead>
+    <tr *ngFor="let client of clients">
+      <th></th>
+      <th>{{client.idClient}}</th>
+      <th>{{client.nom}}</th>
+      <th>{{client.prenom}}</th>
+      <th>{{client.adresse}} {{client.codePostal}} {{client.ville}}</th>
+      <th>{{client.telephone}}</th>
+      <th>{{client.email}}</th>
+      <th> 00</th>
+      <th>Modifier</th>       
+    </tr>
+    </table>
+</div>

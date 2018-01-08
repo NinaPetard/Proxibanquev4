@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CLIENTS } from '../mock-wslisteclients';
 
 @Component({
   selector: 'app-liste-clients',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liste-clients.component.css']
 })
 export class ListeClientsComponent implements OnInit {
-
-  constructor() { }
+  clients=CLIENTS;
+  constructor() { 
+   
+   }
 
   ngOnInit() {
   }

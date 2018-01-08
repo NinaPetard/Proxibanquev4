@@ -9,5 +9,5 @@ export class Client {
     ville:string;
     telephone:string;
     email:string;
-    conseiller: Conseiller;
+    /*conseiller: Conseiller;*/
   }
