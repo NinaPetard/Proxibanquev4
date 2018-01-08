@@ -42,8 +42,8 @@ public abstract class Compte implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "compte_generator")
-    @SequenceGenerator(name="compte_generator", sequenceName = "cpt_seq")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "compte_generator")
+    //@SequenceGenerator(name="compte_generator", sequenceName = "cpt_seq")
     @Column(name = "NUMCOMPTE", nullable = false)
     private Integer numCompte;
     @Column(name = "DATEOUV")
