@@ -13,6 +13,8 @@ export class ListeClientsComponent implements OnInit {
   clients=CLIENTS;
   selectedClient:Client;
   listeCptCli:Compte[];
+  comptes=COMPTES;
+  selectedCompte:Compte;
   constructor() {   
    }
 
@@ -24,7 +26,8 @@ export class ListeClientsComponent implements OnInit {
   getComptes(){
   var comptes = COMPTES;
   this.listeCptCli = COMPTES.filter(compte => compte.idclient === this.selectedClient.idClient);
-  console.log(this.listeCptCli);
+  /*console.log(this.listeCptCli);*/
+   console.log(this.listeCptCli);
 
   }
 
