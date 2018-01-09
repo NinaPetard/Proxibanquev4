@@ -1,121 +1,27 @@
-<!--
+<app-navbar></app-navbar>
 
+<div class="row">   
+        <div class="col-sm-2"> </div>
 <div class="col-sm-6">
-    <div class="containerproxi">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-            <th></th>
-            <th>Id</th>
-            <th>Solde</th>
-            <th>type</th>
-            <th></th>
-            </thead>
-        <tr *ngFor="let compte of comptes"  
-        [class.selected]="compte === selectedCompte"
-        (click)="afficherComptes(compte)">
-        <th></th>
-        <th>{{compte.idCompte}}</th>
-        <th>{{compte.solde}}</th>
-        <th>{{compte.type}}</th>
-        <th> 00</th>
-        <th>Modifier</th>       
-        </tr>
-        </table>
-    </div>
-
-    <br>
-    <br>
-    <div *ngIf="selectedCompte">
-        <div *ngFor="let compte of listeCptCli" class="col-sm-6">
-            <div class="containerproxi" [class.decouvert]="compte.solde<0" >
-                Compte n° {{compte.idCompte}}<br>            
-                Solde: {{compte.solde}}<br>
-                Type de Compte: {{compte.type}}<br>
-            </div>
-        </div>
-
-    </div>
-</div>
-
--->
-
-
-<!-- *******************************************************
-
-
-    VOICI la deuxième bloc de compte!!!!!!
-
-
-
-
--->
-<!--
-
-<div class="col-sm-6">
-    <div class="containerproxi">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-            <th></th>
-            <th>Id</th>
-            <th>Solde</th>
-            <th>type</th>
-
-            <th></th>
-            </thead>
-        <tr *ngFor="let compte of comptes2"  
-        [class.selected]="compte === selectedCompte2"
-        (click)="afficherComptes2(compte)">
-        <th></th>
-        <th>{{compte.idCompte}}</th>
-        <th>{{compte.solde}}</th>
-        <th>{{compte.type}}</th>
-
-        <th> 00</th>
-        <th>Modifier</th>       
-        </tr>
-        </table>
-    </div>
-
-    <br>
-    <br>
-    <div *ngIf="selectedCompte2">
-        <div *ngFor="let compte of listeCptCli2" class="col-sm-6">
-            <div class="containerproxi" [class.decouvert]="compte.solde<0" >
-                Compte n° {{compte.idCompte}}<br>            
-                Solde: {{compte.solde}}<br>
-                Type de Compte: {{compte.type}}<br>
-            </div>
-        </div>
-
-    </div>
-</div>
--->
-
-<div class="col-sm-6">
-    <form [formGroup]="compteForm" novalidate>
+        <div class="containerproxi">
+        <form [formGroup]="formvirement" (ngSubmit)="Fairevirement()" >
         <div class="form-group">
-            <label class="center-block">Comptes:
-                <select class="form-control" formControlName="compte"  >
-                    <option *ngFor="let compte of comptes" [value]={{compte}}   onselect="afficherComptes({{compte}})"  >{{compte.idCompte}}</option>
-                </select>
-            </label>
-        </div>
-    </form>
-</div>
+            <label class="center-block">Compte à débiter:</label>
+                <select formControlName="comptedebit" [(ngModel)]="comptedebit" class="form-control" [(ngModel)]="comptedebit">
+                    <option *ngFor="let compte of listeCptDebit" [value]="compte">{{compte.numcompte}}</option>
+                </select>    
+                <label class="center-block">Compte à créditer:</label>    
+                <select formControlName="comptecredit" [(ngModel)]="comptecredit" class="form-control" [(ngModel)]="comptecredit">
+                        <option *ngFor="let compte of listeCptCredit" [value]="compte">{{compte.numcompte}}</option>
+                    </select>    
 
-<div class="col-sm-6">
-    <p  class="containerproxi">SOLDE: {{ compteForm.get('compte.solde').value}}</p> 
-    <div *ngIf="selectedCompte">
-        <div *ngFor="let compte of listeCptCli" class="col-sm-6">
-            <div class="containerproxi" [class.decouvert]="compte.solde<0" >
-                Compte n° {{compte.idCompte}}<br>            
-                Solde: {{compte.solde}}<br>
-                Type de Compte: {{compte.type}}<br>
+                <label class="center-block">Montant du virement:</label>    
+                <input type="number" formControlName="montant" class="form-control" [(ngModel)]="montant" >
             </div>
-        </div>
-
+        </form>
     </div>
-
-
 </div>
+</div>
+
+
 

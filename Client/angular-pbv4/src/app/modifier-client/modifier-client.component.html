@@ -3,22 +3,44 @@
 <div class="container-fluid">
 		<div class="row">
         <div class="col-sm-3"></div>        
-			<div class="col-sm-6">
-          <div class="containerproxi">
-          <input class ="form-control" id="nom" placeholder={{client.nom}}>
-          <input class ="form-control" id="prenom" placeholder={{client.prenom}}>
-          <input class ="form-control" id="adresse" placeholder={{client.adresse}}>
-          <input class ="form-control" id="codepostal" placeholder={{client.codepostal}}>
-          <input class ="form-control" id="ville" placeholder={{client.ville}}>
-          <input class ="form-control" id="telephone" placeholder={{client.telephone}}>
-          <input class ="form-control" id="email" placeholder={{client.email}}>
-          <br>          
-          <button routerLink="/conseiller/listeclients"  class=".btn-default"><p>Valider les modifications</p></button>
-      </div>
+		<div class="col-sm-6">
+        <div class="containerproxi">
+              
+       
+        <fieldset disabled>
+        <label>Id Client:
+        <input [(ngModel)]="client.idcli" placeholder={{client.idcli}}/>
+        </label><br>
+        </fieldset>
+        <label>Nom:
+        <input [(ngModel)]="client.nomcli" placeholder={{client.nomcli}}/>
+        </label><br>
+        <label>Prenom:
+        <input [(ngModel)]="client.prenomcli" placeholder={{client.prenomcli}}/>
+        </label><br>
+        <label>Adresse:
+        <input [(ngModel)]="client.Adresse" placeholder={{client.Adresse}}/>
+        </label><br>
+        <label>Code Postal:
+        <input [(ngModel)]="client.codepostal" placeholder={{client.codepostal}}/>
+        </label><br>
+        <label>Ville:
+        <input [(ngModel)]="client.Ville" placeholder={{client.Ville}}/>
+        </label><br>
+        <label>Téléphone:
+        <input [(ngModel)]="client.Telephone" placeholder={{client.Telephone}}/>
+        </label><br>
+        <label>Téléphone:
+        <input [(ngModel)]="client.Email" placeholder={{client.Email}}/>
+        </label><br>
+        
+        <button (click)="modifierClient()">Sauvegarder</button>
+        
+   
       <div class="col-3">
       </div>
-      </div>
-      </div>
-      </div>
+
+
+
       
     

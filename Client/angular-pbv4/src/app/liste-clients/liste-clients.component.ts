@@ -1,29 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import {Client} from './../client';
 import{Compte} from './../compte';
-import {COMPTES} from './../mock-wscomptesclient';
 import { ClientService } from '../client.service';
+import { registerLocaleData } from '@angular/common/src/i18n/locale_data';
 
 @Component({
   selector: 'app-liste-clients',
   templateUrl: './liste-clients.component.html',
   styleUrls: ['./liste-clients.component.css']
 })
+
+@Injectable()
 export class ListeClientsComponent implements OnInit {
-<<<<<<< HEAD
   
-  private clients:Client[];
   private selectedClient:Client;
   private listeCptCli:Compte[];
-=======
-  clients=CLIENTS;
-  selectedClient:Client;
-  listeCptCli:Compte[];
-  comptes=COMPTES;
-  selectedCompte:Compte;
-  constructor() {   
-   }
->>>>>>> angularJoinelPbV4
+  private clients:Client[];
+
 
   constructor( private clientService:ClientService) { }
 
@@ -33,20 +26,12 @@ export class ListeClientsComponent implements OnInit {
     this.getComptes();   
   }
 
-  getComptes(){
-  var comptes = COMPTES;
-  this.listeCptCli = COMPTES.filter(compte => compte.idclient === this.selectedClient.idClient);
-  /*console.log(this.listeCptCli);*/
-   console.log(this.listeCptCli);
-
+  getComptes(){  
   }
 
-getClients(){
-  this.clientService.getClients().subscribe(clients => this.clients = clients);
-}
 
   ngOnInit() {
-    this.getClients();
+    this.clientService.getClientConseiller().subscribe(clients => this.clients = clients);
   }
 
 

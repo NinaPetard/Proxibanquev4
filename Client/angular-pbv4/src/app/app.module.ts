@@ -21,6 +21,10 @@ import { StatsGlobalesComponent } from './stats-globales/stats-globales.componen
 import { ClientService} from './client.service';
 import { ConseillerService } from './conseiller.service';
 import { StatsService } from './stats.service';
+import { CompteService } from './comptes.service';
+import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule }   from '@angular/forms';
+
 
 
 
@@ -40,16 +44,20 @@ import { StatsService } from './stats.service';
     ModifierClientComponent,
     StatsConseillerComponent,
     StatsGlobalesComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     ClientService,
     ConseillerService,
-    StatsService
+    StatsService,
+    CompteService
 ],
   bootstrap: [AppComponent]
 })

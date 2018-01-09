@@ -6,4 +6,6 @@ export class Compte {
     solde: number;
     type:string;
     idclient: number;
+    decouvert:number;
+    taux:number;
 }

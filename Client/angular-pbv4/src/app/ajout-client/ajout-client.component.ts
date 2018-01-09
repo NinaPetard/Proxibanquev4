@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Client} from '../client'
 
 @Component({
   selector: 'app-ajout-client',
@@ -9,7 +10,11 @@ export class AjoutClientComponent implements OnInit {
 
   constructor() { }
 
+  model = new Client(-1, "", "", "", "", "", "","" );
+
   ngOnInit() {
   }
+
+  get diagnostic() { return JSON.stringify(this.model); }
 
 }

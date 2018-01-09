@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ClientService} from '../client.service';
 import { Client} from '../client';
+import { ListeClientsComponent } from '../liste-clients/liste-clients.component';
 
 @Component({
   selector: 'app-modifier-client',
@@ -11,23 +12,28 @@ import { Client} from '../client';
 })
 export class ModifierClientComponent implements OnInit {
   
-  @Input() client: Client;
+  
+  client: Client;
   
   constructor(private route: ActivatedRoute,
-     private location: Location,
-    private clientService: ClientService) {
-    
+    private location: Location,
+    private clientService:ClientService) {    
    }
 
   ngOnInit(): void {
     this.getClient();
+   
   }
   
   getClient(): void {
     const idClient = +this.route.snapshot.paramMap.get('idClient');
-    this.clientService.getClient(idClient)
-      .subscribe(client => this.client = client);
+    this.clientService.getClient(idClient).subscribe(client => this.client = new Client(client.idcli, client.nomcli, client.prenomcli,
+    client.Adresse, client.codepostal, client.Ville, client.Telephone, client.Email)) ;
   }
 
+  modifierClient():void{
+    this.clientService.updateClient(this.client);
+    console.log("LALALA");
+  }
 
 }

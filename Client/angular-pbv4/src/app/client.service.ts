@@ -1,22 +1,38 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Client } from './client';
-import { CLIENTS } from './mock-wslisteclients';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 
 @Injectable()
 export class ClientService {
+  
+  listeclients:Client[];
+  urllisteConseiller ='./assets/data/clientsdupond.json';
 
-  constructor() { }
+  constructor( private http: HttpClient) {  }
 
-  getClient(idClient: number): Observable<Client> {   
-    return of(CLIENTS.find(client => client.idClient === idClient));
+  getClientConseiller(): Observable<Client[]> {
+    return this.http.get<Client[]>('./assets/data/clientsdupond.json');
   }
 
-  getClients(): Observable<Client[]> {    
-    return of(CLIENTS);
+
+  getAllClients(): Observable<Client[]> {    
+    return this.http.get<Client[]>('./assets/data/clients.json');
+  }
+
+  getClient(idClient: number): Observable<Client> {
+    return this.http.get<Client>('./assets/data/clientform.json');
+  }
+
+  updateClient (client:Client): Observable<any> {
+    return this.http.put(this.urllisteConseiller, client, httpOptions);
   }
 }

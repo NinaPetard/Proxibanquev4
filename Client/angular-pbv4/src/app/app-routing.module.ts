@@ -8,6 +8,7 @@ import {ModifierClientComponent} from './modifier-client/modifier-client.compone
 import { AjoutClientComponent } from './ajout-client/ajout-client.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListeConseillersComponent } from './liste-conseillers/liste-conseillers.component';
+import {VirementComponent} from './virement/virement.component'
 
 const routes: Routes = [
   { path: 'conseiller/listeclients', component: ListeClientsComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'deconnexion', component: DeconnexionComponent },
   { path: 'conseiller/Modifierclient/:idClient', component: ModifierClientComponent },
   { path: 'conseiller/AjouterClient', component: AjoutClientComponent },
-  { path: 'gerant/listeconseillers', component: ListeConseillersComponent }
+  { path: 'gerant/listeconseillers', component: ListeConseillersComponent },
+  { path: 'conseiller/Virement', component: VirementComponent }
 
 
 ];
