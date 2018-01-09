@@ -1,3 +1,121 @@
-<p>
-  virement works!
-</p>
+<!--
+
+<div class="col-sm-6">
+    <div class="containerproxi">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <th></th>
+            <th>Id</th>
+            <th>Solde</th>
+            <th>type</th>
+            <th></th>
+            </thead>
+        <tr *ngFor="let compte of comptes"  
+        [class.selected]="compte === selectedCompte"
+        (click)="afficherComptes(compte)">
+        <th></th>
+        <th>{{compte.idCompte}}</th>
+        <th>{{compte.solde}}</th>
+        <th>{{compte.type}}</th>
+        <th> 00</th>
+        <th>Modifier</th>       
+        </tr>
+        </table>
+    </div>
+
+    <br>
+    <br>
+    <div *ngIf="selectedCompte">
+        <div *ngFor="let compte of listeCptCli" class="col-sm-6">
+            <div class="containerproxi" [class.decouvert]="compte.solde<0" >
+                Compte n° {{compte.idCompte}}<br>            
+                Solde: {{compte.solde}}<br>
+                Type de Compte: {{compte.type}}<br>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+-->
+
+
+<!-- *******************************************************
+
+
+    VOICI la deuxième bloc de compte!!!!!!
+
+
+
+
+-->
+<!--
+
+<div class="col-sm-6">
+    <div class="containerproxi">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <th></th>
+            <th>Id</th>
+            <th>Solde</th>
+            <th>type</th>
+
+            <th></th>
+            </thead>
+        <tr *ngFor="let compte of comptes2"  
+        [class.selected]="compte === selectedCompte2"
+        (click)="afficherComptes2(compte)">
+        <th></th>
+        <th>{{compte.idCompte}}</th>
+        <th>{{compte.solde}}</th>
+        <th>{{compte.type}}</th>
+
+        <th> 00</th>
+        <th>Modifier</th>       
+        </tr>
+        </table>
+    </div>
+
+    <br>
+    <br>
+    <div *ngIf="selectedCompte2">
+        <div *ngFor="let compte of listeCptCli2" class="col-sm-6">
+            <div class="containerproxi" [class.decouvert]="compte.solde<0" >
+                Compte n° {{compte.idCompte}}<br>            
+                Solde: {{compte.solde}}<br>
+                Type de Compte: {{compte.type}}<br>
+            </div>
+        </div>
+
+    </div>
+</div>
+-->
+
+<div class="col-sm-6">
+    <form [formGroup]="compteForm" novalidate>
+        <div class="form-group">
+            <label class="center-block">Comptes:
+                <select class="form-control" formControlName="compte"  >
+                    <option *ngFor="let compte of comptes" [value]={{compte}}   onselect="afficherComptes({{compte}})"  >{{compte.idCompte}}</option>
+                </select>
+            </label>
+        </div>
+    </form>
+</div>
+
+<div class="col-sm-6">
+    <p  class="containerproxi">SOLDE: {{ compteForm.get('compte.solde').value}}</p> 
+    <div *ngIf="selectedCompte">
+        <div *ngFor="let compte of listeCptCli" class="col-sm-6">
+            <div class="containerproxi" [class.decouvert]="compte.solde<0" >
+                Compte n° {{compte.idCompte}}<br>            
+                Solde: {{compte.solde}}<br>
+                Type de Compte: {{compte.type}}<br>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+

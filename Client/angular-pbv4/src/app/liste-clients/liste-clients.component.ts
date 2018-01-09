@@ -10,10 +10,20 @@ import { ClientService } from '../client.service';
   styleUrls: ['./liste-clients.component.css']
 })
 export class ListeClientsComponent implements OnInit {
+<<<<<<< HEAD
   
   private clients:Client[];
   private selectedClient:Client;
   private listeCptCli:Compte[];
+=======
+  clients=CLIENTS;
+  selectedClient:Client;
+  listeCptCli:Compte[];
+  comptes=COMPTES;
+  selectedCompte:Compte;
+  constructor() {   
+   }
+>>>>>>> angularJoinelPbV4
 
   constructor( private clientService:ClientService) { }
 
@@ -26,7 +36,8 @@ export class ListeClientsComponent implements OnInit {
   getComptes(){
   var comptes = COMPTES;
   this.listeCptCli = COMPTES.filter(compte => compte.idclient === this.selectedClient.idClient);
-  console.log(this.listeCptCli);
+  /*console.log(this.listeCptCli);*/
+   console.log(this.listeCptCli);
 
   }
 
