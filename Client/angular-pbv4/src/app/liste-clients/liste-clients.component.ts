@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CLIENTS } from '../mock-wslisteclients';
-import {Client} from '../client';
-import{Compte} from '../compte';
-import {COMPTES} from '../mock-wscomptesclient';
+import {Client} from './../client';
+import{Compte} from './../compte';
+import {COMPTES} from './../mock-wscomptesclient';
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-liste-clients',
@@ -10,16 +10,18 @@ import {COMPTES} from '../mock-wscomptesclient';
   styleUrls: ['./liste-clients.component.css']
 })
 export class ListeClientsComponent implements OnInit {
-  clients=CLIENTS;
-  selectedClient:Client;
-  listeCptCli:Compte[];
-  constructor() {   
-   }
+  
+  private clients:Client[];
+  private selectedClient:Client;
+  private listeCptCli:Compte[];
 
-   afficherComptes(client){
+  constructor( private clientService:ClientService) { }
+
+  
+  afficherComptes(client){
     this.selectedClient = client;
     this.getComptes();   
-   }
+  }
 
   getComptes(){
   var comptes = COMPTES;
@@ -28,7 +30,12 @@ export class ListeClientsComponent implements OnInit {
 
   }
 
+getClients(){
+  this.clientService.getClients().subscribe(clients => this.clients = clients);
+}
+
   ngOnInit() {
+    this.getClients();
   }
 
 

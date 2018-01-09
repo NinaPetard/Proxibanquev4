@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -6,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+  private router:Router;
+  constructor() {
 
-  constructor() { }
+   
+  }
 
-
+  /*connexion(){
+    this.router.navigate(["/conseiller"]);
+  }*/
 
   ngOnInit() {
+    console.log("LALAL")
   }
 
 }

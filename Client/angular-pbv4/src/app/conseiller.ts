@@ -6,6 +6,6 @@ export class Conseiller {
     nom: string;
     prenom: string;
     email:string;
-   clients: Client[];
-   gerant:Gerant;
+   /*clients: Client[];
+   gerant:Gerant;*/
   }

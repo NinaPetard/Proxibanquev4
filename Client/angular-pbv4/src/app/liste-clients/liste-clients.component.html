@@ -1,4 +1,5 @@
 
+<app-navbar></app-navbar>
 <div class="containerproxi">
     <table class="table table-striped">
         <thead class="thead-dark">
@@ -9,21 +10,18 @@
         <th>Adresse</th>
         <th>Telephone</th>
         <th>Email</th>
-        <th>Solde Compte courant</th>
         <th></th>
         </thead>
     <tr *ngFor="let client of clients"  
-    [class.selected]="client === selectedClient"
-    (click)="afficherComptes(client)">
-      <th></th>
-      <th>{{client.idClient}}</th>
-      <th>{{client.nom}}</th>
-      <th>{{client.prenom}}</th>
-      <th>{{client.adresse}} {{client.codePostal}} {{client.ville}}</th>
-      <th>{{client.telephone}}</th>
-      <th>{{client.email}}</th>
-      <th> 00</th>
-      <th>Modifier</th>       
+    [class.selected]="client === selectedClient">
+      <th (click)="afficherComptes(client)"></th>
+      <th (click)="afficherComptes(client)">{{client.idClient}}</th>
+      <th (click)="afficherComptes(client)">{{client.nom}}</th>
+      <th (click)="afficherComptes(client)">{{client.prenom}}</th>
+      <th (click)="afficherComptes(client)">{{client.adresse}} {{client.codepostal}} {{client.ville}}</th>
+      <th (click)="afficherComptes(client)">{{client.telephone}}</th>
+      <th (click)="afficherComptes(client)">{{client.email}}</th>
+      <th  routerLink="/conseiller/Modifierclient/{{client.idClient}}">Modifier</th>       
     </tr>
     </table>
 </div>
@@ -40,4 +38,6 @@
     </div>
 
 </div>
+
+<app-btn-ajout></app-btn-ajout>
 
