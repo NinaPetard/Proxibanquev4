@@ -24,6 +24,7 @@ public class TestConseiller extends TestCase{
 		//Ce gérant doit déja exister en BD, s'il n'existe pas, le test ne passe pas
 		gerant1 = new Gerant("jchirac","Jacques","Chirac","popo");
 		
+		
 		conseiller2 = new Conseiller("pkhaled", "David","tata","Gerard",gerant1);
 				
 		appContext = new ClassPathXmlApplicationContext("spring-data.xml");
