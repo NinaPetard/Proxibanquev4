@@ -9,7 +9,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DeconnexionComponent } from './deconnexion/deconnexion.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { GreetingComponent } from './greeting/greeting.component';
 import { ListeClientsComponent } from './liste-clients/liste-clients.component';
 import { ListeConseillersComponent } from './liste-conseillers/liste-conseillers.component';
 import { AjoutClientComponent } from './ajout-client/ajout-client.component';
@@ -19,6 +18,9 @@ import { BtnAjoutComponent } from './btn-ajout/btn-ajout.component';
 import { ModifierClientComponent } from './modifier-client/modifier-client.component';
 import { StatsConseillerComponent } from './stats-conseiller/stats-conseiller.component';
 import { StatsGlobalesComponent } from './stats-globales/stats-globales.component';
+import { ClientService} from './client.service';
+import { ConseillerService } from './conseiller.service';
+import { StatsService } from './stats.service';
 
 
 
@@ -29,7 +31,6 @@ import { StatsGlobalesComponent } from './stats-globales/stats-globales.componen
     ConnexionComponent,
     DeconnexionComponent,
     NavbarComponent,
-    GreetingComponent,
     ListeClientsComponent,
     ListeConseillersComponent,
     AjoutClientComponent,
@@ -44,7 +45,11 @@ import { StatsGlobalesComponent } from './stats-globales/stats-globales.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ClientService,
+    ConseillerService,
+    StatsService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

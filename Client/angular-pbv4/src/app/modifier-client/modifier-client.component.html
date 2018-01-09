@@ -1,3 +1,24 @@
-<p>
-  modifier-client works!
-</p>
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+		<div class="row">
+        <div class="col-sm-3"></div>        
+			<div class="col-sm-6">
+          <div class="containerproxi">
+          <input class ="form-control" id="nom" placeholder={{client.nom}}>
+          <input class ="form-control" id="prenom" placeholder={{client.prenom}}>
+          <input class ="form-control" id="adresse" placeholder={{client.adresse}}>
+          <input class ="form-control" id="codepostal" placeholder={{client.codepostal}}>
+          <input class ="form-control" id="ville" placeholder={{client.ville}}>
+          <input class ="form-control" id="telephone" placeholder={{client.telephone}}>
+          <input class ="form-control" id="email" placeholder={{client.email}}>
+          <br>          
+          <button routerLink="/conseiller/listeclients"  class=".btn-default"><p>Valider les modifications</p></button>
+      </div>
+      <div class="col-3">
+      </div>
+      </div>
+      </div>
+      </div>
+      
+    

@@ -1,4 +1,5 @@
 import {Conseiller} from './conseiller';
+import {Compte} from './compte'
 
 export class Client {
     idClient: number;
@@ -9,5 +10,6 @@ export class Client {
     ville:string;
     telephone:string;
     email:string;
-    /*conseiller: Conseiller;*/
+   /* conseiller: Conseiller;
+    comptes:Compte[]*/
   }
