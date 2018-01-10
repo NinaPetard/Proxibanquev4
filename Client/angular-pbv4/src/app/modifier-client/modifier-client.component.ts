@@ -27,13 +27,11 @@ export class ModifierClientComponent implements OnInit {
   
   getClient(): void {
     const idClient = +this.route.snapshot.paramMap.get('idClient');
-    this.clientService.getClient(idClient).subscribe(client => this.client = new Client(client.idcli, client.nomcli, client.prenomcli,
-    client.Adresse, client.codepostal, client.Ville, client.Telephone, client.Email)) ;
+    this.clientService.getClient(idClient).subscribe(client => this.client = client);
   }
 
   modifierClient():void{
     this.clientService.updateClient(this.client);
-    console.log("LALALA");
   }
 
 }

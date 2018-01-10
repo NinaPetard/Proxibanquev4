@@ -14,7 +14,8 @@ export class AjoutClientComponent implements OnInit {
   private message:string;
 
 
-  
+
+  model = new Client(-1, "", "", "", "", "", "", "")
 
   ngOnInit(): void {
   }
@@ -29,8 +30,8 @@ export class AjoutClientComponent implements OnInit {
     Email=Email.trim();
    
     this.clientService.addClient({ nomcli, prenomcli, Adresse, codepostal, Ville, Telephone, Email } as Client );
-    console.log(nomcli)
+    this.message ="Le client "+nomcli+" "+prenomcli+" a été ajouté."
   }
 
 }
-}
+
