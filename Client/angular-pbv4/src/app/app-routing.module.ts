@@ -14,7 +14,6 @@ import { ErreursComponent } from './erreurs/erreurs.component';
 const routes: Routes = [
   { path: 'conseiller/listeclients', component: ListeClientsComponent },
   { path: '', component: ConnexionComponent },
-  { path: 'conseiller/*', component: NavbarComponent },
   { path: 'deconnexion', component: DeconnexionComponent },
   { path: 'conseiller/Modifierclient/:idClient', component: ModifierClientComponent },
   { path: 'conseiller/AjouterClient', component: AjoutClientComponent },

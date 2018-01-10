@@ -16,8 +16,9 @@ export class VirementComponent implements OnInit {
 
  
   comptedebit:Compte;
-  comptecredit:Compte[];
+  comptescredit:Compte[];
   montant:number;
+  message:string;
   
   listeCptDebit:Compte[];
   listeCptCredit:Compte[];
@@ -33,11 +34,18 @@ getComptesDebit(){
   this.compteservice.getComptesConseiller().subscribe(comptes => this.listeCptDebit = comptes);
 }
 
+faireVirement(comptedebit, comptecredit, montant){
+  this.message="Virement Effectué"
+  this.compteservice.faireVirement(comptedebit, comptecredit, montant);
+
+}
 
 getComptesCredit(){
   this.compteservice.getComptes().subscribe(comptes => this.listeCptCredit = comptes);
 
 }
+
+
 
 
 

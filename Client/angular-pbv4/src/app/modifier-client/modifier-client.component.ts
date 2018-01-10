@@ -13,7 +13,8 @@ import { ListeClientsComponent } from '../liste-clients/liste-clients.component'
 export class ModifierClientComponent implements OnInit {
   
   
-  client: Client;
+  client:Client;
+  message:string;
   
   constructor(private route: ActivatedRoute,
     private location: Location,
@@ -27,11 +28,12 @@ export class ModifierClientComponent implements OnInit {
   
   getClient(): void {
     const idClient = +this.route.snapshot.paramMap.get('idClient');
-    this.clientService.getClient(idClient).subscribe(client => this.client = client);
+    this.clientService.getClient(idClient)
+    .subscribe(client => this.client = client);
   }
 
   modifierClient():void{
-    this.clientService.updateClient(this.client);
+    //this.clientService.updateClient(this.client);
+    this.message ="Le client "+this.client.nomcli+" "+this.client.prenomcli+" a été modifié."
   }
-
 }

@@ -4,7 +4,7 @@
     <div class="col-sm-8">
         <div class="containerproxi">
 
-                <form name="formModif" (ngSubmit)="formModif.form.valid && login()" #formModif="ngForm" novalidate>
+                <form name="formModif" (ngSubmit)="formModif.form.valid" #formModif="ngForm" novalidate>
                         <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !nomcli.valid }">
                             <label for="nomcli"><p>Nom:</p></label>
                             <input type="text" class="form-control" required value={{client.nomcli}}/>
@@ -13,7 +13,7 @@
             
                         <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !prenomcli.valid }">
                                 <label for="prenomcli"><p>Prénom</p></label>
-                                <input type="text" class="form-control" name="prenomcli" value={{client.prenomcli}} required />
+                                <input type="text" class="form-control" name="prenomcli" value={{client.prenomcli}}  required />
                                 <div *ngIf="formModif.submitted && !prenomcli.valid" class="help-block">Veuillez remplir le prénom</div>
                         </div>
             
@@ -48,12 +48,13 @@
                         </div>
                         
                         <div class="form-group">
-                                <button [disabled]="!formModif.form.valid" class="btn btn-primary" (click)="addClient(nomcli.value, prenomcli.value,Adresse.value, codepostal.value, Ville.value, Telephone.value, Email.value)">
+                                <button [disabled]="!formModif.form.valid" class="btn btn-primary" (click)="modifierClient()">
                                        Enregistrer les modifications
                                         </button>
                         </div>
             
                     </form>
+                    <div *ngIf="message" class="alert alert-success">{{message}}</div>
                     </div>
                 </div>
                     <div class="col-sm-2"></div>

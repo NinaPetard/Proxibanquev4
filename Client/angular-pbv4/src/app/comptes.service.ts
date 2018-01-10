@@ -37,5 +37,9 @@ export class CompteService {
     }
 
   }
+  faireVirement(comptedebit, comptecredit, montant){
+    
+
+  }
   
 }

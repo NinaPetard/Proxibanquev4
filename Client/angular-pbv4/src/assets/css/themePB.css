@@ -78,8 +78,15 @@ textclair {
 }
 
 .decouvert {
+    border-radius: 15px;
 	background-color: #a53b3b;
 	color: #ffffff; 
+}
+
+.pasdecouvert {
+    border-radius: 15px;
+	background-color: rgb(139, 170, 127); ;
+	color: #ffffff;
 }
 
 .containerproxiGreet {

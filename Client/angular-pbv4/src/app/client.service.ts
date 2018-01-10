@@ -15,21 +15,21 @@ const httpOptions = {
 export class ClientService {
   
   listeclients:Client[];
-  urllisteConseiller ='./assets/data/clientsdupond.json';
+  urllisteConseiller ='assets/data/clientsdupond.json';
 
   constructor( private http: HttpClient) {  }
 
   getClientConseiller(): Observable<Client[]> {
-    return this.http.get<Client[]>('./assets/data/clientsdupond.json');
+    return this.http.get<Client[]>('assets/data/clientsdupond.json');
   }
 
 
   getAllClients(): Observable<Client[]> {    
-    return this.http.get<Client[]>('./assets/data/clients.json');
+    return this.http.get<Client[]>('assets/data/clients.json');
   }
 
   getClient(idClient: number): Observable<Client> {
-    return this.http.get<Client>('./assets/data/clientform.json');
+    return this.http.get<Client>('assets/data/clientform.json');
   }
 
   updateClient (client:Client): Observable<any> {
