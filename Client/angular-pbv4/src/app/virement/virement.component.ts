@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
-import { CLIENTS } from '../mock-wslisteclients';
 import {Client} from '../client';
 import{Compte} from '../compte';
-import {COMPTES} from '../mock-wscomptesclient';
 import {CompteService} from '../comptes.service';
 
 
@@ -33,7 +31,6 @@ export class VirementComponent implements OnInit {
 
 getComptesDebit(){
   this.compteservice.getComptesConseiller().subscribe(comptes => this.listeCptDebit = comptes);
-
 }
 
 

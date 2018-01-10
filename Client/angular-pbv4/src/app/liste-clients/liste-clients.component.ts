@@ -3,6 +3,7 @@ import {Client} from './../client';
 import{Compte} from './../compte';
 import { ClientService } from '../client.service';
 import { registerLocaleData } from '@angular/common/src/i18n/locale_data';
+import { CompteService } from '../comptes.service';
 
 @Component({
   selector: 'app-liste-clients',
@@ -18,20 +19,22 @@ export class ListeClientsComponent implements OnInit {
   private clients:Client[];
 
 
-  constructor( private clientService:ClientService) { }
+  constructor( private clientService:ClientService,
+  private compteService:CompteService) { }
 
   
-  afficherComptes(client){
-    this.selectedClient = client;
-    this.getComptes();   
-  }
-
-  getComptes(){  
+  afficherComptes(client){    
+    this.selectedClient = client;  
+    this.getComptesCli(this.selectedClient.idcli); 
   }
 
 
   ngOnInit() {
     this.clientService.getClientConseiller().subscribe(clients => this.clients = clients);
+  }
+
+  getComptesCli(idClient){
+    this.compteService.getComptesClient(idClient).subscribe(comptes => this.listeCptCli = comptes);
   }
 
 

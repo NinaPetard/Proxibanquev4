@@ -4,17 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { Conseiller } from './conseiller';
-import {STATSVIR } from './mock-stats';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { StatsVir } from './statsvir';
 
 @Injectable()
 export class StatsService {
 
-  constructor() { }
+  constructor( private http: HttpClient) {  }
 
-  getStatsVir(idConseiller): Observable<StatsVir> {
-    
-    return of(STATSVIR.find(statsvir => statsvir.idConseiller === idConseiller));
+  getStatsVir(idConseiller): Observable<StatsVir> {    
+    return this.http.get<StatsVir>('./assets/data/statsvir.json');
   }
 
 }

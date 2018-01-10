@@ -23,10 +23,19 @@ export class CompteService {
 
     
 
-    getComptesConseiller(){
+  getComptesConseiller(){
       return this.http.get<Compte[]>('./assets/data/comptesdupond.json');  
-    }  
+  }  
 
+  getComptesClient(idClient){
+    if(idClient==1){
+      return this.http.get<Compte[]>('./assets/data/comptesdupond1.json'); 
+    }
 
+    if(idClient==9){
+      return this.http.get<Compte[]>('./assets/data/comptesdupond9.json'); 
+    }
+
+  }
   
 }

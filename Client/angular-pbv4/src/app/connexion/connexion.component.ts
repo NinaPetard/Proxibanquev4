@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../authentification.service';
 
 @Component({
   selector: 'app-connexion',
@@ -7,18 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
-  private router:Router;
-  constructor() {
+  model: any = {};
+  loading = false;
+  error = '';
+  
+  constructor(
+    private router: Router, private authService: AuthService) { }
 
-   
-  }
-
-  /*connexion(){
-    this.router.navigate(["/conseiller"]);
-  }*/
-
+  login() {
+    var result =this.authService.identifier(this.model.username,this.model.password)
+           if (result === true) {
+               this.router.navigate(['conseiller/listeclients']);
+           } else {
+               this.error = 'Username or password is incorrect';
+               this.loading = false;
+           }
+}
+  
   ngOnInit() {
-    console.log("LALAL")
   }
 
 }

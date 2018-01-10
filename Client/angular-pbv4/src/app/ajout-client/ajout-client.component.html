@@ -1,53 +1,65 @@
 
 <app-navbar></app-navbar>
 
-<div class="container-fluid">
-		<div class="row">
-        <div class="col-sm-3"></div>        
-		<div class="col-sm-6">
-        <div class="containerproxi">
-              
-        <form #ajouterClient="ngForm">
-        <fieldset disabled>
-        <div class="form-group">
-        <label>Id Client:</label>
-        <input type="text" class="form-control" id="idcli" required >
-        </div>
-        </fieldset>
-        <div class="form-group">
-        <label>Nom:</label>
-        <input type="text" class="form-control" id="nomcli" required>
-        </div>
 
-        <div class="form-group">
-        <label>Prenom:</label>
-        <input type="text" class="form-control" id="prenomcli" required >
-        </div>
-        <div class="form-group">
-        <label>Adresse:</label>
-        <input type="text" class="form-control" id="Adresse" required >
-        </div>
-        <div class="form-group">
-        <label>Code Postal:</label>
-        <input type="text" class="form-control" id="codepostal" required >
-        </div>
-        <div class="form-group">
-        <label>Ville:</label>
-        <input type="text" class="form-control" id="Ville" required  >
-        </div>
-        <div class="form-group">
-        <label>Telephone:</label>
-        <input type="text" class="form-control" id="Telephone" required >
-        </div>
-        <div class="form-group">
-        <label>Email:</label>
-        <input type="text" class="form-control" id="Email" required >
-        </div>
-        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-        <form (ngSubmit)="AddClient()" #ajouterClient="ngForm">
-  
-        
         
    
-      <div class="col-3">
+      <div class="col-2">
       </div>
+
+      <div class="col-8">
+          <div class="containerproxi">
+
+
+      <form name="formAjout" (ngSubmit)="f.form.valid && login()" #formAjout="ngForm" novalidate>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !nomcli.valid }">
+                <label for="nomcli"><p>Nom</p></label>
+                <input type="text" class="form-control" name="nomcli" [(ngModel)]="model.nomcli" #nomcli="ngModel" required />
+                <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !prenomcli.valid }">
+                    <label for="prenomcli"><p>Nom</p></label>
+                    <input type="text" class="form-control" name="prenomcli" [(ngModel)]="model.prenomcli" #prenomcli="ngModel" required />
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Adresse.valid }">
+                    <label for="Adresse"><p>Nom</p></label>
+                    <input type="text" class="form-control" name="Adresse" [(ngModel)]="model.Adresse" #Adresse="ngModel" required />
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !codepostal.valid }">
+                    <label for="codepostal"><p>Nom</p></label>
+                    <input type="text" class="form-control" name="codepostal" [(ngModel)]="model.codepostal" #codepostal="ngModel" required />
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Ville.valid }">
+                    <label for="Ville"><p>Nom</p></label>
+                    <input type="text" class="form-control" name="Ville" [(ngModel)]="model.Ville" #Ville="ngModel" required />
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Telephone.valid }">
+                    <label for="Telephone"><p>Nom</p></label>
+                    <input type="text" class="form-control" name="Telephone" [(ngModel)]="model.Telephone" #Telephone="ngModel" required />
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }">
+                    <label for="Email"><p>Nom</p></label>
+                    <input type="text" class="form-control" name="Email" [(ngModel)]="model.Email" #Email="ngModel" required />
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+            
+            <div class="form-group">
+                    <button [disabled]="!formAjout.form.valid" class="btn btn-primary" (click)="addClient(nomcli.value, prenomcli.value,Adresse.value, codepostal.value, Ville.value, Telephone.value, Email.value)">
+                            Ajouter un client
+                            </button>
+            </div>
+
+        </form>
+        </div>
+        

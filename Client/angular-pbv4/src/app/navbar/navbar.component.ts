@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Conseiller} from '../conseiller';
-import {CONSEILLER} from '../mock-wsconseiller';
+import { ConseillerService } from '../conseiller.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -14,12 +14,13 @@ export class NavbarComponent implements OnInit {
   
 
   getConseiller(){
-    this.conseiller = CONSEILLER.find(conseiller => conseiller.idConseiller === 1);
+    //this.conseiller = this.conseillerService.getConseiller(1).subscribe(conseiller => this.conseiller = conseiller);
+    this.conseiller={"logincons":"pdupond","password"  :"toto","prenomcons"  :"Paul","nomcons"  :"Dupond","loginger"  :"jchirac"}
   }
 
   ngOnInit() {
     this.getConseiller();
   }
-  constructor() { }
+  constructor(private conseillerService:ConseillerService) { }
 
 }

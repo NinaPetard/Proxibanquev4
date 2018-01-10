@@ -35,4 +35,8 @@ export class ClientService {
   updateClient (client:Client): Observable<any> {
     return this.http.put(this.urllisteConseiller, client, httpOptions);
   }
+
+  addClient (client:Client): Observable<Client> {
+    return this.http.post<Client>(this.urllisteConseiller, client, httpOptions);
+  }
 }

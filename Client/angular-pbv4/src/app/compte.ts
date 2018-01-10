@@ -2,10 +2,12 @@ import {Client} from './client';
 
 
 export class Compte {
-    idCompte: number;
-    solde: number;
-    type:string;
-    idclient: number;
+    numcompte: number;
+    idcli: string;
+    TYPE_COMPTE:string;
+    dateouv: string;
+    solde:number;
     decouvert:number;
-    taux:number;
+    tauxrem:number;
+    client?:Client;
 }

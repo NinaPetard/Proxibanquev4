@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Client} from '../client'
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-ajout-client',
@@ -8,13 +9,28 @@ import {Client} from '../client'
 })
 export class AjoutClientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private clientService: ClientService) { }
 
-  model = new Client(-1, "", "", "", "", "", "","" );
+  private message:string;
 
-  ngOnInit() {
+
+  
+
+  ngOnInit(): void {
   }
 
-  get diagnostic() { return JSON.stringify(this.model); }
+  addClient(nomcli,prenomcli, Adresse, codepostal, Ville, Telephone, Email){    
+    nomcli = nomcli.trim();
+    prenomcli=prenomcli.trim();
+    Adresse=Adresse.trim();
+    codepostal=codepostal.trim();
+    Ville=Ville.trim();
+    Telephone=Telephone.trim();
+    Email=Email.trim();
+   
+    this.clientService.addClient({ nomcli, prenomcli, Adresse, codepostal, Ville, Telephone, Email } as Client );
+    console.log(nomcli)
+  }
 
+}
 }

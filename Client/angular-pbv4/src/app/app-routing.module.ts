@@ -9,6 +9,7 @@ import { AjoutClientComponent } from './ajout-client/ajout-client.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListeConseillersComponent } from './liste-conseillers/liste-conseillers.component';
 import {VirementComponent} from './virement/virement.component'
+import { ErreursComponent } from './erreurs/erreurs.component';
 
 const routes: Routes = [
   { path: 'conseiller/listeclients', component: ListeClientsComponent },
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'conseiller/Modifierclient/:idClient', component: ModifierClientComponent },
   { path: 'conseiller/AjouterClient', component: AjoutClientComponent },
   { path: 'gerant/listeconseillers', component: ListeConseillersComponent },
-  { path: 'conseiller/Virement', component: VirementComponent }
+  { path: 'conseiller/Virement', component: VirementComponent },
+  { path: 'erreur', component: ErreursComponent }
+
 
 
 ];

@@ -24,6 +24,8 @@ import { StatsService } from './stats.service';
 import { CompteService } from './comptes.service';
 import { HttpClientModule }    from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
+import { ErreursComponent } from './erreurs/erreurs.component';
+import { AuthService } from './authentification.service';
 
 
 
@@ -43,7 +45,8 @@ import { FormsModule }   from '@angular/forms';
     BtnAjoutComponent,
     ModifierClientComponent,
     StatsConseillerComponent,
-    StatsGlobalesComponent
+    StatsGlobalesComponent,
+    ErreursComponent
  
   ],
   imports: [
@@ -57,7 +60,8 @@ import { FormsModule }   from '@angular/forms';
     ClientService,
     ConseillerService,
     StatsService,
-    CompteService
+    CompteService,
+    AuthService
 ],
   bootstrap: [AppComponent]
 })
