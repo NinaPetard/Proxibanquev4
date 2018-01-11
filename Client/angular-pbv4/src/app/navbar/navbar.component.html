@@ -7,7 +7,9 @@
       <ul class="nav navbar-nav">
         <li routerLink="/conseiller/listeclients"><a>Gestion des Clients</a></li>        
         <li routerLink="/conseiller/Virement"><a >Virements</a></li>
-        <li routerLink="/deconnexion"><a >Deconnexion</a></li>
+        <li *ngIf="userRole=='gerant'" routerLink="/gerant/listeconseillers" > <a>Liste des Conseillers</a></li>
+        <li routerLink="/deconnexion" (click)="deconnexion()" ><a >Deconnexion</a></li>
+      
 
       </ul>   
     </div>

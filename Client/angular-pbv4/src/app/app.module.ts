@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -26,6 +25,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { ErreursComponent } from './erreurs/erreurs.component';
 import { AuthService } from './authentification.service';
+import { VirementService } from './virement.service';
 
 
 
@@ -53,7 +53,6 @@ import { AuthService } from './authentification.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
     FormsModule
   ],
   providers: [
@@ -61,7 +60,8 @@ import { AuthService } from './authentification.service';
     ConseillerService,
     StatsService,
     CompteService,
-    AuthService
+    AuthService,
+    VirementService
 ],
   bootstrap: [AppComponent]
 })

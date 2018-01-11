@@ -6,16 +6,15 @@
 <div class="containerproxi">
     <table class="table table-striped">
         <thead class="thead-dark">
-        <th>Id</th>
+        <th>Identifiant</th>
         <th>Nom</th>
         <th>Prenom</th>
         </thead>
     <tr *ngFor="let conseiller of conseillers"  
-    [class.selected]="conseiller === selectedConseiller" (click)="afficherStats(conseiller)">
-     
-      <th>{{conseiller.idConseiller}}</th>
-      <th>{{conseiller.nom}}</th>
-      <th>{{conseiller.prenom}}</th>   
+    [class.selected]="conseiller === selectedConseiller" (click)="afficherStats(conseiller)">     
+      <th>{{conseiller.logincons}}</th>
+      <th>{{conseiller.nomcons}}</th>
+      <th>{{conseiller.prenomcons}}</th>   
     
     </tr>
     </table>

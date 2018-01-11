@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Client } from './client';
+import { User } from './user';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,20 +15,40 @@ const httpOptions = {
 @Injectable()
 export class AuthService {
   
- 
+ private user:User= new User();
 
   constructor( ) {  }
 
-  identifier(login:String, motdepasse:string): Boolean {
+  identifier(login:string, motdepasse:string): Boolean {
       if(login==="pdupond" && motdepasse==="toto"){
+          this.user.login=login;
+          this.user.role="conseiller";
           return true;
       }
+
+      if(login==="jdupre" && motdepasse==="tata"){
+        this.user.login=login;
+        this.user.role="gerant";
+        return true;
+    }
+
+
       else{
           return false;
       }
    
   }
 
+  getId(){
+      return this.user.login;
+  }
+  getRole(){
+      return this.user.role;
+  }
+
+  deconnection(){
+      this.user=new User();
+  }
 
 
 

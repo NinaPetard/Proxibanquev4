@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-
-
+import { Component, OnInit , Input} from '@angular/core';
 import {Client} from '../client';
+import {Virement} from '../virement';
 import{Compte} from '../compte';
 import {CompteService} from '../comptes.service';
+import {VirementService} from '../virement.service';
+import { FormsModule }   from '@angular/forms';
+import { AuthService } from '../authentification.service';
 
 
 @Component({
@@ -15,18 +16,21 @@ import {CompteService} from '../comptes.service';
 export class VirementComponent implements OnInit {
 
  
-  comptedebit:Compte;
-  comptescredit:Compte[];
-  montant:number;
-  message:string;
+  @Input()virement:Virement;
   
-  listeCptDebit:Compte[];
-  listeCptCredit:Compte[];
+  private message:string;
+  private listeCptDebit:Compte[];
+  private listeCptCredit:Compte[];
+  
+  @Input()private compteDebit:number;
+  @Input()private compteCredit:number;
+  @Input()private montant:number;
 
-  formvirement: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private compteservice:CompteService) {
+  constructor( private compteservice:CompteService,
+     private virementservice:VirementService,
+    private authService:AuthService) {
   
    }
 
@@ -34,33 +38,23 @@ getComptesDebit(){
   this.compteservice.getComptesConseiller().subscribe(comptes => this.listeCptDebit = comptes);
 }
 
-faireVirement(comptedebit, comptecredit, montant){
-  this.message="Virement Effectué"
-  this.compteservice.faireVirement(comptedebit, comptecredit, montant);
-
-}
-
 getComptesCredit(){
   this.compteservice.getComptes().subscribe(comptes => this.listeCptCredit = comptes);
-
 }
 
+faireVirement(){
+  this.virement = new Virement();
+  this.virement.compteCredit=this.compteCredit;
+  this.virement.compteDebit=this.compteDebit;
+  this.virement.montant=this.montant;
+  this.virement.conseiller=this.authService.getId();
+  this.message=this.virementservice.faireVirement(this.virement);
 
-
-
-
-
+}
 
   ngOnInit() {
     this.getComptesDebit();
     this.getComptesCredit();
-
-    this.formvirement = new FormGroup({
-      comptedebit: new FormControl(),
-      comptecredit:new FormControl(),
-      montant:new FormControl()
-
-    })
   }
 
 
