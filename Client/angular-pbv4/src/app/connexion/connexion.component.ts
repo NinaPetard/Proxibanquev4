@@ -20,7 +20,7 @@ export class ConnexionComponent implements OnInit {
            if (result === true) {
                this.router.navigate(['conseiller/listeclients']);
            } else {
-               this.error = 'Username or password is incorrect';
+               this.error = "Le mot de passe ou l'identifiant est incorrect";
                this.loading = false;
            }
 }
