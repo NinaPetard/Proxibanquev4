@@ -3,6 +3,7 @@ import {ConseillerService} from '../conseiller.service';
 import {Conseiller} from '../conseiller'
 import {StatsService} from '../stats.service'
 import {StatsVir} from '../statsvir';
+import { AuthService } from '../authentification.service';
 
 @Component({
   selector: 'app-liste-conseillers',
@@ -16,10 +17,12 @@ export class ListeConseillersComponent implements OnInit {
   private statsConseillerVir:StatsVir;
 
   constructor(private conseillerService:ConseillerService,
-    private statsService:StatsService) { }
+    private statsService:StatsService, private authService:AuthService) { }
 
   ngOnInit() {
     this.getConseillers()
+    this.authService.setuserRol("gerant";)
+
   }
 
   getConseillers(){

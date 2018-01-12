@@ -15,27 +15,34 @@ import { AuthService } from '../authentification.service';
 })
 export class VirementComponent implements OnInit {
 
+  constructor( private compteservice:CompteService,
+    private virementservice:VirementService,
+   private authService:AuthService) {
  
-  @Input()virement:Virement;
-  
+  }
+
   private message:string;
   private listeCptDebit:Compte[];
   private listeCptCredit:Compte[];
-  
+
+  @Input()virement:Virement;
   @Input()private compteDebit:number;
   @Input()private compteCredit:number;
   @Input()private montant:number;
-
-
-
-  constructor( private compteservice:CompteService,
-     private virementservice:VirementService,
-    private authService:AuthService) {
   
-   }
+
+  
+
+  ngOnInit() {
+    this.getComptesDebit();
+    this.getComptesCredit();
+  }
+
+
+  
 
 getComptesDebit(){
-  this.compteservice.getComptesConseiller().subscribe(comptes => this.listeCptDebit = comptes);
+  this.compteservice.getComptesConseiller(this.authService.getId()).subscribe(comptes => this.listeCptDebit = comptes);
 }
 
 getComptesCredit(){
@@ -52,10 +59,7 @@ faireVirement(){
 
 }
 
-  ngOnInit() {
-    this.getComptesDebit();
-    this.getComptesCredit();
-  }
+  
 
 
 

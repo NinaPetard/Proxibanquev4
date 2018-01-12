@@ -21,13 +21,13 @@
     <tr *ngFor="let client of clients"  
     [class.selected]="client === selectedClient">
       <th (click)="afficherComptes(client)"></th>
-      <th (click)="afficherComptes(client)">{{client.idcli}}</th>
+      <th (click)="afficherComptes(client)">{{client.id}}</th>
       <th (click)="afficherComptes(client)">{{client.nomcli}}</th>
       <th (click)="afficherComptes(client)">{{client.prenomcli}}</th>
       <th (click)="afficherComptes(client)">{{client.Adresse}} {{client.codepostal}} {{client.Ville}}</th>
       <th (click)="afficherComptes(client)">{{client.Telephone}}</th>
       <th (click)="afficherComptes(client)">{{client.Email}}</th>
-      <th  routerLink="/conseiller/Modifierclient/{{client.idcli}}">Modifier</th>       
+      <th  routerLink="/conseiller/Modifierclient/{{client.id}}">Modifier</th>       
     </tr>
     </table>
 </div>

@@ -26,6 +26,11 @@ import { FormsModule }   from '@angular/forms';
 import { ErreursComponent } from './erreurs/erreurs.component';
 import { AuthService } from './authentification.service';
 import { VirementService } from './virement.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService }  from './data.service';
+
+import { ChartsModule } from 'ng2-charts';
+
 
 
 
@@ -53,7 +58,11 @@ import { VirementService } from './virement.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    HttpClientInMemoryWebApiModule.forRoot(
+      DataService, { dataEncapsulation: false }
+    ),
+    FormsModule,
+    ChartsModule
   ],
   providers: [
     ClientService,

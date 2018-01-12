@@ -9,58 +9,48 @@
 
       <div class="col-sm-8">
             <div class="containerproxi">
-
-
-                    <form name="formModif" (ngSubmit)="formModif.form.valid " #formModif="ngForm" novalidate>
-                            <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !nomcli.valid }">
-                                <label for="nomcli"><p>Nom:</p></label>
-                                <input type="text" class="form-control" name="nomcli" [(ngModel)]="model.nomcli" #nomcli="ngModel" required />
-                                <div *ngIf="formModif.submitted && !nomcli.valid" class="help-block">Veuillez remplir le nom</div>
-                            </div>
-                
-                            <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !prenomcli.valid }">
-                                    <label for="prenomcli"><p>Prénom</p></label>
-                                    <input type="text" class="form-control" name="prenomcli" [(ngModel)]="model.prenomcli" #prenomcli="ngModel" required />
-                                    <div *ngIf="formModif.submitted && !prenomcli.valid" class="help-block">Veuillez remplir le prénom</div>
-                            </div>
-                
-                            <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !Adresse.valid }">
-                                    <label for="Adresse"><p>Adresse:</p></label>
-                                    <input type="text" class="form-control" name="Adresse" [(ngModel)]="model.Adresse" #Adresse="ngModel" required />
-                                    <div *ngIf="formModif.submitted && !Adresse.valid" class="help-block">Veuillez remplir l'adresse</div>
-                            </div>
-                
-                            <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !codepostal.valid }">
-                                    <label for="codepostal"><p>Code Postal:</p></label>
-                                    <input type="text" class="form-control" name="codepostal" [(ngModel)]="model.codepostal" #codepostal="ngModel" required />
-                                    <div *ngIf="formModif.submitted && !codepostal.valid" class="help-block">Veuillez remplir le code postal</div>
-                            </div>
-                
-                            <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !Ville.valid }">
-                                    <label for="Ville"><p>Ville:</p></label>
-                                    <input type="text" class="form-control" name="Ville" [(ngModel)]="model.Ville" #Ville="ngModel" required />
-                                    <div *ngIf="formModif.submitted && !Ville.valid" class="help-block">Veuillez remplir la ville</div>
-                            </div>
-                
-                            <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !Telephone.valid }">
-                                    <label for="Telephone"><p>Téléphone:</p></label>
-                                    <input type="text" class="form-control" name="Telephone" [(ngModel)]="model.Telephone" #Telephone="ngModel" required />
-                                    <div *ngIf="formModif.submitted && !Telephone.valid" class="help-block">Veuillez remplir le numéro de téléphone</div>
-                            </div>
-                
-                            <div class="form-group" [ngClass]="{ 'has-error': formModif.submitted && !Email.valid }">
-                                    <label for="Email"><p>Adresse mail:</p></label>
-                                    <input type="text" class="form-control" name="Email" [(ngModel)]="model.Email" #Email="ngModel" required />
-                                    <div *ngIf="formModif.submitted && !Email.valid" class="help-block">Veuillez remplir l'adresse e-mail</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                    <button [disabled]="!formModif.form.valid" class="btn btn-primary" (click)="addClient(nomcli.value, prenomcli.value,Adresse.value, codepostal.value, Ville.value, Telephone.value, Email.value)">
-                                            Ajouter un client
-                                            </button>
-                            </div>
-                
-                        </form>
-
                         <div *ngIf="message" class="alert alert-success">{{message}}</div>
+
+
+                        <form class="form" (ngSubmit)="addClient()" #formajout="ngForm">
+                             
+
+                                <div class="form-group">
+                                <label class="center-block">Nom du Client:</label>    
+                                <input type="text" class="form-control" required [(ngModel)]="nomcli" [ngModelOptions]="{standalone: true}">
+                               
+                                
+                                <label class="center-block">Prénom du Client:</label>    
+                                <input type="text" class="form-control" required="required" [(ngModel)]="prenomcli" [ngModelOptions]="{standalone: true}">
+                             
+                                                        
+                               
+                                <label class="center-block">Adresse:</label>    
+                                <input type="text" class="form-control" required="required" [(ngModel)]="Adresse" [ngModelOptions]="{standalone: true}">
+                                
+
+                                <label class="center-block">Code Postal:</label>    
+                                <input type="text" class="form-control" required="required" [(ngModel)]="codepostal" [ngModelOptions]="{standalone: true}">
+                              
+
+                                <label class="center-block">Ville:</label>    
+                                <input type="text" class="form-control" required="required" [(ngModel)]="Ville" [ngModelOptions]="{standalone: true}">
+                            
+
+                                <label class="center-block">Téléphone:</label>    
+                                <input type="text" class="form-control" required="required" [(ngModel)]="Telephone" [ngModelOptions]="{standalone: true}">
+                          
+
+                                <label class="center-block">Adresse Mail:</label>    
+                                <input type="text" class="form-control" required="required" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}">
+                                
+                              </div>
+                                  
+                                
+                                <button class="btn btn-primary" [disabled]="!formajout.form.valid" type="submit">Ajouter le Client </button>  
+                             
+                        </form>
                         </div>
+      </div>
+      
+                             

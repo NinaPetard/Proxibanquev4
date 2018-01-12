@@ -5,7 +5,7 @@ export class Client {
     
 
     constructor(
-      public idcli?: number,
+      public id?: number,
       public nomcli?: string,
       public prenomcli?: string,
       public Adresse?:string,
@@ -13,7 +13,7 @@ export class Client {
       public Ville?:string,
       public Telephone?:string,
       public Email?:string,
-      conseiller?: Conseiller,
+      public loginconseiller?:string,
       comptes?:Compte[]
 
     ) {  }

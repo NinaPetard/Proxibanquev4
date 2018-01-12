@@ -17,14 +17,10 @@ export class ConseillerService {
 
 
   getConseillers(): Observable<Conseiller[]> {
-    return this.http.get<Conseiller[]>('./assets/data/conseillers.json');
+    return this.http.get<Conseiller[]>(`api/conseillers`);
   }
 
   getConseiller(idConseiller): Observable<Conseiller> {
     return this.http.get<Conseiller>('./assets/data/conseiller.json');
   }
-
-
-
-
 }

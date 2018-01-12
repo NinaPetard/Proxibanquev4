@@ -10,7 +10,7 @@
                 <div class="form-group">
                         <label for="compteDebit"> Compte à débiter:</label>
                         <select class="form-control" name="compteDebit" *ngIf="listeCptDebit" [(ngModel)]="compteDebit" required="required">
-                            <option *ngFor="let compte of listeCptDebit" [value]="compte.numcompte">{{compte.numcompte}}</option>
+                            <option *ngFor="let compte of listeCptDebit" [value]="compte.numcompte">{{compte.numcompte}} - {{compte.prenomcli}} {{compte.nomcli}}</option>
                         </select>
                 </div>       
                 <div class="form-group">
@@ -22,7 +22,7 @@
 
                 <div class="form-group">
                 <label class="center-block">Montant du virement:</label>    
-                <input type="number" class="form-control" class="form-control" required="required" [(ngModel)]="montant" [ngModelOptions]="{standalone: true}">
+                <input type="number" class="form-control" required="required" [(ngModel)]="montant" [ngModelOptions]="{standalone: true}">
                 </div>
 
                       

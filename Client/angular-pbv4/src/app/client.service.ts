@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Client } from './client';
+import { AuthService } from './authentification.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,26 +18,42 @@ export class ClientService {
   listeclients:Client[];
   urllisteConseiller ='assets/data/clientsdupond.json';
 
-  constructor( private http: HttpClient) {  }
+  private urlclients = 'api/clients'
+  constructor( private http: HttpClient,
+  private authService:AuthService) {  }
 
-  getClientConseiller(): Observable<Client[]> {
-    return this.http.get<Client[]>('assets/data/clientsdupond.json');
+  getClientConseiller(logincons:string): Observable<Client[]> {
+    return this.http.get<Client[]>(`api/clients/?logincons=${logincons}`);
   }
 
 
   getAllClients(): Observable<Client[]> {    
-    return this.http.get<Client[]>('assets/data/clients.json');
+    return this.http.get<Client[]>(`api/clients`);
   }
 
-  getClient(idClient: number): Observable<Client> {
-    return this.http.get<Client>('assets/data/clientform.json');
+  getClient(idclient: number): Client{
+    //return this.http.get<Client>(`api/clients/?id=${idclient}`);
+    //const url = `${this.urlclients}/${idclient}`;
+    var client ={"idcli"  :"1","prenomcli"  :"Richard",
+"nomcli"  :"FOSTER",
+"Adresse"  :"9 RUE DU LAC",
+"codepostal"  :"45900",
+"Ville"  :"LA SOURCE",
+"Telephone"  :"0302345698",
+"Email"  :"r.foster@forbes.com",
+"logincons"  :"pdupond"}
+    return client
   }
 
   updateClient (client:Client): Observable<any> {
     return this.http.put(this.urllisteConseiller, client, httpOptions);
   }
 
+
+
   addClient (client:Client): Observable<Client> {
-    return this.http.post<Client>(this.urllisteConseiller, client, httpOptions);
+    console.log(client);
+    return this.http.post<Client>(this.urlclients, client, httpOptions);
   }
+
 }

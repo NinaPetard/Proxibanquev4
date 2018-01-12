@@ -4,6 +4,7 @@ import{Compte} from './../compte';
 import { ClientService } from '../client.service';
 import { registerLocaleData } from '@angular/common/src/i18n/locale_data';
 import { CompteService } from '../comptes.service';
+import { AuthService } from '../authentification.service';
 
 @Component({
   selector: 'app-liste-clients',
@@ -20,20 +21,21 @@ export class ListeClientsComponent implements OnInit {
 
 
   constructor( private clientService:ClientService,
-  private compteService:CompteService) { }
+  private compteService:CompteService, private authService:AuthService) { }
 
   
   afficherComptes(client){    
     this.selectedClient = client;  
-    this.getComptesCli(this.selectedClient.idcli); 
+    this.getComptesCli(this.selectedClient.id); 
   }
 
 
   ngOnInit() {
-    this.clientService.getClientConseiller().subscribe(clients => this.clients = clients);
+    this.clientService.getClientConseiller(this.authService.getId()).subscribe(clients => this.clients = clients);
   }
 
   getComptesCli(idClient){
+    console.log("Id du client possèdant les comptes:"+idClient)
     this.compteService.getComptesClient(idClient).subscribe(comptes => this.listeCptCli = comptes);
   }
 

@@ -12,8 +12,18 @@ import { ListeClientsComponent } from '../liste-clients/liste-clients.component'
 })
 export class ModifierClientComponent implements OnInit {
   
-  
-  client:Client;
+
+@Input() idcli: number;
+@Input() nomcli: string;
+@Input() prenomcli: string;
+@Input() Adresse:string;
+@Input() odepostal:string;
+@Input() Ville:string;
+@Input() Telephone:string;
+@Input() codepostal:string;
+@Input() Email:string;
+@Input() client:Client;
+
   message:string;
   
   constructor(private route: ActivatedRoute,
@@ -27,13 +37,24 @@ export class ModifierClientComponent implements OnInit {
   }
   
   getClient(): void {
-    const idClient = +this.route.snapshot.paramMap.get('idClient');
-    this.clientService.getClient(idClient)
-    .subscribe(client => this.client = client);
+    this.idcli = +this.route.snapshot.paramMap.get('idClient');
+    //this.clientService.getClient(this.idcli)
+    //.subscribe(client => this.client = client);
+    //console.log(this.client);
+    console.log("Id envoyé:"+this.idcli);
+    this.client=this.clientService.getClient(this.idcli);
+    this.nomcli=this.client.nomcli;
+    this.prenomcli=this.client.prenomcli;
+    this.Adresse=this.client.Adresse;
+    this.codepostal=this.client.codepostal;
+    this.Ville=this.client.Ville;
+    this.Telephone=this.client.Telephone;
+    this.Email=this.client.Email;
+
   }
 
-  modifierClient():void{
+  ModifierClient():void{
     //this.clientService.updateClient(this.client);
-    this.message ="Le client "+this.client.nomcli+" "+this.client.prenomcli+" a été modifié."
+    this.message ="Le client "+this.nomcli+" "+this.prenomcli+" a été modifié."
   }
 }

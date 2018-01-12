@@ -31,8 +31,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.userRole = this.getUser();
-    this.getConseiller();
-   
+    this.getConseiller();   
   }
 
   deconnexion(){

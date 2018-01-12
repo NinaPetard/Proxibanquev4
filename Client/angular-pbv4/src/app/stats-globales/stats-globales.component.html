@@ -1,3 +1,20 @@
-<p>
-  stats-globales works!
-</p>
+<script src="node_modules/chart.js/src/chart.js"></script>
+<div class="col-sm-2"></div>
+<div class="containerproxi">
+<div>
+  <div style="display: block">
+
+    <h3>Part des clients à découvert dans l'agence</h3>
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            >
+          </canvas>
+
+          </div>
+
+</div>
