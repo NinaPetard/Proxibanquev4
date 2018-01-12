@@ -21,7 +21,7 @@ export class ListeConseillersComponent implements OnInit {
 
   ngOnInit() {
     this.getConseillers()
-    this.authService.setuserRol("gerant";)
+    this.authService.setUserRole("gerant");
 
   }
 
